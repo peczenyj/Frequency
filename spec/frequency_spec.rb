@@ -8,11 +8,13 @@ describe "Frequency" do
        always { true }.should be_true
      end
    end
+   
    describe "never" do
      it "should be not execute never" do
        never { true }.should be_nil
      end
    end
+   
    describe "sometimes" do
      it "should be execute if rand() returns less than 0.50" do
        Kernel.should_receive(:rand).with().and_return(0.00)
