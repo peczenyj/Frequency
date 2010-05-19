@@ -4,19 +4,19 @@ Frequency is a small dsl written in ruby to work with frequency events (never, s
 
 == Examples
 
-  include Frequency
+	include Frequency
 
-  sometimes do
-    puts "sometimes you can see this times, sometimes not"
-  end
+	sometimes do
+	  puts "sometimes you can see this times, sometimes not"
+	end
 
-  never do
-    puts "this line never will be print"
-  end
+	never do
+	  puts "this line never will be print"
+	end
 
-  rarely :with_probability => 0.01 do
-    puts "ok, its very rare..."
-  end
+	rarely :with_probability => 0.01 do
+	  puts "ok, its very rare..."
+	end
 
 == Copyright
 
