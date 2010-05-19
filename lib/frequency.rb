@@ -26,6 +26,6 @@ module Frequency
   private
   def self.execute_with_probability(conditions,default)
     rate   = conditions[:with_probability] || default
-    yield if rand < rate
+    yield if Kernel.rand() < rate
   end
 end
