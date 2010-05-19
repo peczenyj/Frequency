@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{frequency}
+  s.name = %q{frequency-dsl}
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -21,7 +21,6 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "frequency.gemspec",
      "lib/frequency.rb",
      "spec/frequency_helper.rb",
      "spec/spec_helper.rb"

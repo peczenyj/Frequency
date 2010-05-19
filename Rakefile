@@ -4,7 +4,7 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "frequency"
+    gem.name = "frequency-dsl"
     gem.summary = %Q{A small dsl written in ruby to work with frequency events}
     gem.description = %Q{A small dsl written in ruby to work with frequency events (never, sometimes, always..)}
     gem.email = "tiago.peczenyj@gmail.com"
