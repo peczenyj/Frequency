@@ -3,28 +3,28 @@ module Frequency
   SOMETIMES = 0.50
   RARELY    = 0.25
   
-  def self.always(cond={})
+  def always(cond={})
     yield if block_given?
   end
   
-  def self.normally(cond={})
-    self.execute_with_probability(cond,NORMALLY ) { yield } if block_given?
+  def normally(cond={})
+    execute_with_probability(cond,NORMALLY ) { yield } if block_given?
   end
   
-  def self.sometimes(cond={})
-    self.execute_with_probability(cond,SOMETIMES) { yield } if block_given?
+  def sometimes(cond={})
+    execute_with_probability(cond,SOMETIMES) { yield } if block_given?
   end
   
-  def self.rarely(cond={})
-    self.execute_with_probability(cond,RARELY   ) { yield } if block_given?
+  def rarely(cond={})
+    execute_with_probability(cond,RARELY   ) { yield } if block_given?
   end
   
-  def self.never(cond={})
+  def never(cond={})
     nil
   end
   
   private
-  def self.execute_with_probability(conditions,default)
+  def execute_with_probability(conditions,default)
     rate   = conditions[:with_probability] || default
     yield if Kernel.rand() < rate
   end
