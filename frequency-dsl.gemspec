@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{frequency-dsl}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tiago Peczenyj"]
@@ -21,8 +21,9 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "frequency-dsl.gemspec",
      "lib/frequency.rb",
-     "spec/frequency_helper.rb",
+     "spec/frequency_spec.rb",
      "spec/spec_helper.rb"
   ]
   s.homepage = %q{http://github.com/peczenyj/Frequency}
@@ -31,7 +32,7 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{A small dsl written in ruby to work with frequency events}
   s.test_files = [
-    "spec/frequency_helper.rb",
+    "spec/frequency_spec.rb",
      "spec/spec_helper.rb"
   ]
 
