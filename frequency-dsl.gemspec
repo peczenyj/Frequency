@@ -23,6 +23,15 @@ Gem::Specification.new do |s|
      "VERSION",
      "frequency-dsl.gemspec",
      "lib/frequency.rb",
+     "rdoc/classes/Frequency.html",
+     "rdoc/created.rid",
+     "rdoc/files/README_rdoc.html",
+     "rdoc/files/lib/frequency_rb.html",
+     "rdoc/fr_class_index.html",
+     "rdoc/fr_file_index.html",
+     "rdoc/fr_method_index.html",
+     "rdoc/index.html",
+     "rdoc/rdoc-style.css",
      "spec/frequency_spec.rb",
      "spec/spec_helper.rb"
   ]
