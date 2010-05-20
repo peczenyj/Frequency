@@ -36,6 +36,8 @@ module Frequency
     execute_with_probability(cond,SOMETIMES) { yield } if block_given?
   end
   
+  alias :maybe :sometimes
+  
   # rarely (25%) do something,
   # see sometimes method
   # example:

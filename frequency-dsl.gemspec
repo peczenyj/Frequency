@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{frequency-dsl}
-  s.version = "0.0.7"
+  s.version = "0.0.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Tiago Peczenyj"]
-  s.date = %q{2010-05-19}
+  s.date = %q{2010-05-20}
   s.description = %q{A small dsl written in ruby to work with frequency events (never, sometimes, always..)}
   s.email = %q{tiago.peczenyj@gmail.com}
   s.extra_rdoc_files = [
