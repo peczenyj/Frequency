@@ -17,13 +17,35 @@ describe "Frequency" do
    
    describe "sometimes" do
      it "should be execute if rand() returns less than 0.50" do
-       Kernel.should_receive(:rand).with().and_return(0.00)
+       Kernel.should_receive(:rand).with().and_return(0.14999)
        sometimes { true }.should be_true  
      end
      it "should not be execute if rand() returns more than 0.50" do
        Kernel.should_receive(:rand).with().and_return(0.99)
        sometimes { true }.should be_nil
-     end     
+     end   
+     it "should be execute if rand return less than 0.15" do
+       Kernel.should_receive(:rand).with().and_return(0.14999)
+       sometimes :with_probability => 0.15 do
+          true
+       end.should be_true
+       
+     end 
+     it "should not be execute if rand return more than 0.15" do
+       Kernel.should_receive(:rand).with().and_return(0.15)
+       sometimes :with_probability => 0.15 do
+          true
+       end.should be_nil
+       
+     end
+     it "should be execute if rand return less than 15%" do
+       Kernel.should_receive(:rand).with().and_return(0.149999)
+       sometimes :with_probability => '15%' do
+          true
+       end.should be_true
+       
+     end 
+          
    end
 
 end
