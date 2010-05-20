@@ -17,6 +17,14 @@ Frequency is a small dsl written in ruby to work with frequency events (never, s
 	rarely :with_probability => 0.01 do
 	  puts "ok, its very rare..."
 	end
+	
+	normally :with_probability => '24%' do
+          puts "you can use strings instead float numbers"
+        end
+
+        alwais do
+          puts "bye" 
+        end
 
 == Copyright
 
