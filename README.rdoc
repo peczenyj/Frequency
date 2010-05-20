@@ -4,6 +4,11 @@ Frequency is a small dsl written in ruby to work with frequency events (never, s
 
 == Examples
 
+Frequency is easy... 
+
+ 	require 'rubygems'
+	require 'frequency'
+
 	include Frequency
 
 	sometimes do
@@ -22,9 +27,14 @@ Frequency is a small dsl written in ruby to work with frequency events (never, s
           puts "you can use strings instead float numbers"
         end
 
-        alwais do
+        always do
           puts "bye" 
         end
+
+the option with_probability does not work with never and always.
+
+== Install
+ [sudo] gem install frequency-dsl
 
 == Copyright
 
