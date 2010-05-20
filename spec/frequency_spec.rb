@@ -45,7 +45,20 @@ describe "Frequency" do
        end.should be_true
        
      end 
-          
+     it "should be raise a exception if probability is more than 100%" do
+       lambda{
+         sometimes :with_probability => '101%' do
+          true
+         end
+       }.should raise_exception(RuntimeError)
+     end
+     it "should be raise a exception if probability is less than 0%" do
+       lambda{
+         sometimes :with_probability => '-1%' do
+          true
+         end
+       }.should raise_exception(RuntimeError)
+     end     
    end
-
+   
 end

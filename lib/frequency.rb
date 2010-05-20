@@ -26,11 +26,12 @@ module Frequency
   private
   def execute_with_probability(conditions,default)
     rate = conditions[:with_probability] || default
-    rate = Float(rate) rescue correct_if_string(rate) 
+    rate = Float(rate) rescue correct_if_string(rate)
+    raise "probability must be [0..100]%" unless 0 <= rate && rate <= 1 
     yield if Kernel.rand() < rate
   end
   
   def correct_if_string(rate)
-     Float(rate.gsub(/%$/,""))/100 if rate =~ /^\d+(.\d+)?%$/
+     Float(rate.gsub(/%$/,""))/100 if rate =~ /^-?\d+(.\d+)?%$/
   end
 end
