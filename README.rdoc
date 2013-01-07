@@ -4,34 +4,33 @@ Frequency is a small dsl written in ruby to work with frequency events (never, s
 
 == Examples
 
-Frequency is easy... 
+Frequency is easy to use
 
-<pre class="code">
- 	require 'rubygems'
-	require 'frequency'
 
-	include Frequency
+ require 'rubygems'
+ require 'frequency'
 
-	sometimes do
-	  puts "sometimes you can see this times, sometimes not"
-	end
+ include Frequency
 
-	never do
-	  puts "this line never will be print"
-	end
+ sometimes do
+    puts "sometimes you can see this times, sometimes not"
+ end
 
-	rarely :with_probability => 0.01 do
-	  puts "ok, its very rare..."
-	end
-	
-	normally :with_probability => '24%' do
-          puts "you can use strings instead float numbers"
-        end
+ never do
+   puts "this line never will be print"
+ end
 
-        always do
-          puts "bye" 
-        end
-</pre>
+ rarely :with_probability => 0.01 do
+   puts "ok, its very rare..."
+ end
+
+ normally :with_probability => '24%' do
+   puts "you can use strings instead float numbers"
+ end
+
+ always do
+   puts "bye" 
+ end
 
 the option with_probability does not work with never and always.
 
