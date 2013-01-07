@@ -6,6 +6,7 @@ Frequency is a small dsl written in ruby to work with frequency events (never, s
 
 Frequency is easy... 
 
+<pre class="code">
  	require 'rubygems'
 	require 'frequency'
 
@@ -30,6 +31,7 @@ Frequency is easy...
         always do
           puts "bye" 
         end
+</pre>
 
 the option with_probability does not work with never and always.
 
