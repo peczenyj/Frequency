@@ -20,3 +20,12 @@ Metrics/BlockLength:
 Naming/MethodName:
   Exclude:
     - "lib/frequency.rb"   # __run, __coerce, etc. are intentionally underscored
+
+Style/AccessModifierDeclarations:
+  Enabled: false
+Style/ClassMethodsDefinitions:
+  Enabled: false
+Style/SingleLineMethods:
+  Enabled: false
+Style/RedundantSelf:
+  Enabled: false
