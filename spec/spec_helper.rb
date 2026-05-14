@@ -1,10 +1,11 @@
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-require 'rubygems'
-require 'frequency'
-require 'spec'
-require 'spec/autorun'
+# frozen_string_literal: true
 
-Spec::Runner.configure do |config|
-  
+require "frequency"
+
+RSpec.configure do |config|
+  config.disable_monkey_patching!
+  config.expect_with(:rspec) { |c| c.syntax = :expect }
+  config.mock_with(:rspec) { |c| c.syntax = :expect }
+  config.order = :random
+  Kernel.srand(config.seed)
 end
