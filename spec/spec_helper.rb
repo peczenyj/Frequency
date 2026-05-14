@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "frequency"
+require 'frequency'
 
 RSpec.configure do |config|
   config.disable_monkey_patching!

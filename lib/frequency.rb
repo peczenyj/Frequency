@@ -13,18 +13,20 @@
 #   include Frequency
 #   sometimes { puts "maybe" }
 module Frequency
-  VERSION = "0.2.0"
+  VERSION = '0.2.0'
 
   # Base error class. Catch this to handle any Frequency-raised error.
-  Error = Class.new(StandardError)
+  class Error < StandardError
+  end
 
   # Raised when the probability value is not a number/string in [0, 1].
-  InvalidProbabilityError = Class.new(Error)
+  class InvalidProbabilityError < Error
+  end
 
   DEFAULTS = {
-    normally:  0.75,
+    normally: 0.75,
     sometimes: 0.50,
-    rarely:    0.25
+    rarely: 0.25
   }.freeze
 
   PERCENT_PATTERN = /\A-?\d+(?:\.\d+)?%\z/
@@ -50,7 +52,7 @@ module Frequency
   end
 
   # Alias of #sometimes.
-  alias_method :maybe, :sometimes
+  alias maybe sometimes
 
   # Run the block ~25% of the time by default.
   def rarely(with_probability: DEFAULTS[:rarely], &block)
@@ -61,7 +63,6 @@ module Frequency
   # `include Frequency; sometimes { ... }` and `Frequency.sometimes { ... }`
   # work. Unlike `module_function`, `extend self` keeps the methods public
   # when the module is included as a mixin.
-  extend self
 
   class << self
     # Inject a custom Random instance for reproducible runs.
@@ -87,9 +88,7 @@ module Frequency
       return nil unless block
 
       rate = __coerce(probability)
-      unless (0.0..1.0).cover?(rate)
-        raise InvalidProbabilityError, "probability must be in [0, 1], got #{rate}"
-      end
+      raise InvalidProbabilityError, "probability must be in [0, 1], got #{rate}" unless (0.0..1.0).cover?(rate)
 
       block.call if random.rand < rate
     end
@@ -106,7 +105,7 @@ module Frequency
 
     def __parse_string(str)
       if PERCENT_PATTERN.match?(str)
-        Float(str.chomp("%")) / 100.0
+        Float(str.chomp('%')) / 100.0
       else
         Float(str)
       end
