@@ -8,7 +8,7 @@ RSpec.describe Frequency do
   let(:rng) { instance_double(Random) }
 
   before { Frequency.random = rng }
-  after  { Frequency.random = nil }
+  after { Frequency.random = nil }
 
   describe ".always" do
     it "runs the block and returns its value" do
@@ -118,14 +118,14 @@ RSpec.describe Frequency do
     before { Frequency.random = nil } # don't use the instance_double here
 
     it "produces deterministic results for a given seed" do
-      first  = described_class.with_seed(42) { Array.new(20) { described_class.sometimes { 1 } } }
+      first = described_class.with_seed(42) { Array.new(20) { described_class.sometimes { 1 } } }
       second = described_class.with_seed(42) { Array.new(20) { described_class.sometimes { 1 } } }
       expect(first).to eq(second)
     end
 
     it "restores the previous RNG after the block" do
       previous = Frequency.random
-      described_class.with_seed(42) { }
+      described_class.with_seed(42) {}
       expect(Frequency.random).to be(previous)
     end
   end

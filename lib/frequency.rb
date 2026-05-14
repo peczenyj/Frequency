@@ -22,9 +22,9 @@ module Frequency
   InvalidProbabilityError = Class.new(Error)
 
   DEFAULTS = {
-    normally:  0.75,
+    normally: 0.75,
     sometimes: 0.50,
-    rarely:    0.25
+    rarely: 0.25
   }.freeze
 
   PERCENT_PATTERN = /\A-?\d+(?:\.\d+)?%\z/
@@ -99,7 +99,7 @@ module Frequency
     def __coerce(value)
       case value
       when Numeric then value.to_f
-      when String  then __parse_string(value)
+      when String then __parse_string(value)
       else raise InvalidProbabilityError, "unsupported probability type: #{value.class}"
       end
     end

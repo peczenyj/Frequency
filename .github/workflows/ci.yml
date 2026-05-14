@@ -27,7 +27,7 @@ jobs:
         run: bundle exec rake spec
 
   lint:
-    name: RuboCop
+    name: standardrb
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -38,5 +38,5 @@ jobs:
           ruby-version: "3.3"
           bundler-cache: true
 
-      - name: Run RuboCop
-        run: bundle exec rubocop --no-server
+      - name: Run standardrb
+        run: bundle exec standardrb
