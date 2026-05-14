@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Frequency is a small DSL written in Ruby to work with " \
                      "frequency events (never, sometimes, always, ...)."
   spec.homepage = "https://github.com/peczenyj/Frequency"
-  spec.license = "MIT"
+  spec.license = "Apache-2.0"
 
   spec.required_ruby_version = ">= 3.1.0"
 
