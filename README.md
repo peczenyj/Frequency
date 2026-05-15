@@ -39,9 +39,45 @@ Requires Ruby 3.1 or newer.
 
 Two call styles are supported — pick whichever fits your code.
 
+### Mixin style
+
+`include Frequency` and the methods read like plain English —
+`sometimes do ... end` — which is the original intent of the DSL:
+
+```ruby
+require "frequency"
+
+include Frequency
+
+sometimes do
+  puts "you see this roughly half the time"
+end
+
+rarely do
+  puts "and this only now and then"
+end
+```
+
+Inside a host class it works the same way:
+
+```ruby
+class EventLogger
+  include Frequency
+
+  def record(event)
+    sometimes do
+      write_to_disk(event)
+    end
+
+    rarely(with_probability: "0.1%") { ship_for_audit(event) }
+  end
+end
+```
+
 ### Module-function style
 
-Recommended for libraries and anywhere you want explicit namespacing:
+When you don't want to mix the methods in, call them on the module. The brace
+form is handy here for one-liners:
 
 ```ruby
 require "frequency"
@@ -49,23 +85,6 @@ require "frequency"
 Frequency.sometimes { puts "maybe" }
 Frequency.rarely(with_probability: 0.01) { puts "1% of the time" }
 Frequency.normally(with_probability: "24%") { puts "string percent" }
-```
-
-### Mixin style
-
-Convenient at the script level or inside a host class:
-
-```ruby
-require "frequency"
-
-class EventLogger
-  include Frequency
-
-  def record(event)
-    sometimes { write_to_disk(event) }
-    rarely(with_probability: "0.1%") { ship_for_audit(event) }
-  end
-end
 ```
 
 ### The `with_probability:` keyword
